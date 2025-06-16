@@ -1,12 +1,35 @@
+html,body{
+    margin:0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .container{
+    background-color: black;
+    width: 16em;
+    padding: 2em;
     display: flex;;
     flex-direction: column;
     align-items: center;
+    gap: 0.5em;
 }
 .rows{
     display: flex;
+    gap: 0.5em;
 }
 button{
-    height: 30px;
-    width: 30px;
+    height: 50px;
+    width: 50px;
+    border-radius: 10%;
+    font-size: 1.5em;
+}
+.result{
+    width: 14rem;
+    background-color: lightgrey;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2em;
+    align-items: center;
 }
