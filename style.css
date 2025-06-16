@@ -7,12 +7,15 @@ html,body{
 }
 .container{
     background-color: black;
+    border-radius: 10%;
     width: 16em;
     padding: 2em;
+    padding-top: 1em;
     display: flex;;
     flex-direction: column;
     align-items: center;
     gap: 0.5em;
+    justify-content: center;
 }
 .rows{
     display: flex;
@@ -21,9 +24,22 @@ html,body{
 button{
     height: 50px;
     width: 50px;
-    border-radius: 10%;
+    border-radius: 50%;
     font-size: 1.5em;
+    background-color: lightsteelblue;
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, background-color 0.2s;
 }
+button:hover{
+    background-color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+button:active {
+    transform: translateY(0) scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: none;
+}
+
 .result{
     width: 14rem;
     background-color: lightgrey;
@@ -32,4 +48,27 @@ button{
     justify-content: flex-end;
     font-size: 2em;
     align-items: center;
+    margin-top: 0.5em;
+}
+h1{
+    color:white;
+    padding: 0;
+    margin-bottom: 0;
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#equals{
+    background-color: green;
+}
+#equals:hover{
+    background-color: lightgreen;
+}
+#clear,#allClear{
+    background-color: red;
+}
+#clear:hover,#allClear:hover{
+    background-color: rgb(245, 78, 78);
 }

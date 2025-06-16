@@ -15,7 +15,8 @@ const multiply=document.querySelector("#multiply");
 const divide=document.querySelector("#divide");
 const expo=document.querySelector("#expo");
 const clear=document.querySelector("#clear");
-allClear=document.querySelector("#allClear");
+const allClear=document.querySelector("#allClear");
+
 add.addEventListener("click",e=>{
     if(result.textContent!=''){
         num1=result.textContent;
@@ -60,6 +61,11 @@ expo.addEventListener("click",e=>{
         num1=result.textContent;
         op='^';
         result.textContent='';
+    }
+})
+clear.addEventListener("click",e=>{
+    if(result.textContent!=''){
+        result.textContent=result.textContent.slice(0,-1);
     }
 })
 equals.addEventListener("click",e=>{
