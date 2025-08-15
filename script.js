@@ -17,6 +17,15 @@ const expo=document.querySelector("#expo");
 const clear=document.querySelector("#clear");
 const allClear=document.querySelector("#allClear");
 
+const PRECISION = 6;
+
+function formatResult(n){
+    if (typeof n !== 'number' || !isFinite(n)) return 'Error';
+    if (Number.isInteger(n)) return n.toString();
+    // toFixed then parseFloat removes trailing zeros, keeps PRECISION decimals max
+    return parseFloat(n.toFixed(PRECISION)).toString();
+}
+
 add.addEventListener("click",e=>{
     if(result.textContent!=''){
         num1=result.textContent;
@@ -32,7 +41,8 @@ allClear.addEventListener("click",e=>{
 })
 per.addEventListener("click",e=>{
     if(result.textContent!=''){
-        result.textContent=Number(result.textContent)/100;
+        const res = Number(result.textContent) / 100;
+        result.textContent = formatResult(res);
     }
 })
 minus.addEventListener("click",e=>{
@@ -71,28 +81,33 @@ clear.addEventListener("click",e=>{
 equals.addEventListener("click",e=>{
     if(result.textContent!='' && num1!=''){
         num2=result.textContent;
+        let res;
         switch(op){
             case '+':
-                result.textContent=Number(num1)+Number(num2);
+                res = Number(num1)+Number(num2);
                 break;
             case '-':
-                result.textContent=Number(num1)-Number(num2);
+                res = Number(num1)-Number(num2);
                 break;
             case '*':
-                result.textContent=Number(num1)*Number(num2);
+                res = Number(num1)*Number(num2);
                 break;
             case '/':
                 if(Number(num2)===0){
                     result.textContent='Error';
-                }
-                else {
-                    result.textContent=Number(num1)/Number(num2);
+                    num1='';
+                    num2='';
+                    op='';
+                    return;
+                } else {
+                    res = Number(num1)/Number(num2);
                 }
                 break;
             case '^':
-                result.textContent=Math.pow(Number(num1), Number(num2));
+                res = Math.pow(Number(num1), Number(num2));
                 break;
         }
+        result.textContent = formatResult(res);
         num1='';
         num2='';
         op='';
